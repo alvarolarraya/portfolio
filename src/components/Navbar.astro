@@ -1,0 +1,32 @@
+---
+import Hamburger from '../components/Hamburger.astro';
+import Contact from '../components/Contact.astro';
+
+export interface Props {
+    github: string;
+	linkedin: string;
+	email: string;
+}
+
+const { github, linkedin, email} = Astro.props;
+
+---
+<div class="navbar">
+    <Hamburger />
+    <Contact
+        linkedin={linkedin};
+        github={github};
+        email={email};
+    />
+</div>
+
+
+<style>
+    .navbar{
+        top:0;
+        left:0;
+        background-color:rgb(20, 20, 20);
+        padding: 1%;
+        margin:0;
+    }
+</style>
