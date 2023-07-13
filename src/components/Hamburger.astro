@@ -1,39 +1,57 @@
 ---
-
+import MenuItem from '../components/MenuItem.astro';
 ---
 <label>
 <input type="checkbox">
 <span class="menu"> <span class="hamburger"></span> </span>
-<ul>
-    <li> <a href="#">Home</a> </li>
-    <li> <a href="#">About</a> </li>
-    <li> <a href="#">Contact</a> </li>
+<ul >
+  <MenuItem
+    href=""
+    title="Home"
+  />
+
+  <MenuItem
+    href=""
+    title="Projects"
+  />
+
+  <MenuItem
+    href=""
+    title="About me"
+  />
 </ul>
 </label>
 
 <style>
-*, *:before, *:after 
-{ box-sizing: border-box; }
+*{
+  width: 0;
+  padding:0;
+  margin:0;
+}
 
-html { font-size: 18px; }
-
-label .menu {
+.menu {
   position: absolute;
   right: -100px;
   top: -100px;
-  z-index: 100;
+  z-index: 1000;
   width: 200px;
   height: 200px;
   background: rgb(var(--accent));
   border-radius: 50% 50% 50% 50%;
   -webkit-transition: .5s ease-in-out;
   transition: .5s ease-in-out;
-  box-shadow: 0 0 0 0 #FFF, 0 0 0 0 #FFF;
+  box-shadow: 0 0 0 0 rgb(var(--accent)), 0 0 0 0;
   cursor: pointer;
   
 }
 
-label .hamburger {
+.menu:hover {
+  width: 210px;
+  height: 210px;
+  background: white;
+}
+
+.hamburger {
   position: absolute;
   top: 135px;
   left: 50px;
@@ -47,7 +65,7 @@ label .hamburger {
   transition: .5s ease-in-out;
 }
 
-label .hamburger:after, label .hamburger:before {
+.hamburger:after, .hamburger:before {
   -webkit-transition: .5s ease-in-out;
   transition: .5s ease-in-out;
   content: "";
@@ -58,67 +76,62 @@ label .hamburger:after, label .hamburger:before {
   background: black;
 }
 
-label .hamburger:before { top: -10px; }
+.hamburger:before { top: -10px; }
 
-label .hamburger:after { bottom: -10px; }
+.hamburger:after { bottom: -10px; }
 
-label input { display: none; }
+input { display: none; }
 
-label input:checked + .menu {
-  box-shadow: 0 0 0 100vw #FFF, 0 0 0 100vh #FFF;
-  border-radius: 0;
-  
+input:checked + .menu {
+  box-shadow: 0 0 0 100vw #1a1a1a, 0 0 0 100vh;
 }
 
-label input:checked + .menu .hamburger {
+input:checked + .menu .hamburger {
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
   
 }
 
-label input:checked + .menu .hamburger:after {
+input:checked + .menu .hamburger:after {
   -webkit-transform: rotate(90deg);
   transform: rotate(90deg);
   bottom: 0;
   
 }
 
-label input:checked + .menu .hamburger:before {
+input:checked + .menu .hamburger:before {
   -webkit-transform: rotate(90deg);
   transform: rotate(90deg);
   top: 0;
   
 }
 
-label input:checked + .menu + ul { opacity: 1; }
+input:checked + .menu + * { 
+  opacity: 1;
+  z-index: 960;
+  width:100%;
+ }
 
-label ul {
-  z-index: 200;
+ input:checked + .menu + ul { 
+  width: 100%-150px;
+  height: 100vh;
+  display: grid;
+  grid-template rows: repeat(3, 100vh);
+  z-index: 1100;
+  top:0;
+  right:150px;
+ }
+
+ul {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  /* bottom:0; */
+  right:0;
+  top:0;
+  /* left:0; */
+  list-style-type: none;
+  z-index: 1100;
   opacity: 0;
   -webkit-transition: .25s 0s ease-in-out;
   transition: .25s 0s ease-in-out;
-}
-
-label a {
-  margin-bottom: 1em;
-  display: block;
-  color: black;
-  text-decoration: none;
-  
-}
-
-h1 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  width: 80%;
-  text-align: center;
 }
 </style>

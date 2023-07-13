@@ -1,0 +1,68 @@
+---
+export interface Props {
+	title: string;
+	href: string;
+}
+
+const { href, title} = Astro.props;
+
+---
+
+<li class="link-card">
+	<a href={href}>
+        <h2>
+            {title}
+        </h2>
+	</a>
+</li>
+<style>
+    *{
+        padding:0;
+        margin:0;
+    }
+	.link-card {
+        z-index: 970;
+		text-align: center;
+		list-style: none;
+		display: flex;
+		padding: 0.25rem;
+		background-color: rgb(0, 0, 0);
+		background-image: none;
+		background-size: 400%;
+		border-radius: 0.6rem;
+		background-position: 100%;
+		transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+		box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+        height:(100/3)vh;
+	}
+
+	.link-card > a {
+        display: grid;
+  place-items: center;
+		text-decoration: none;
+		line-height: 1.4;
+		padding: 1rem 1.3rem;
+		border-radius: 0.35rem;
+		color: #ffffff;
+		background-color: rgb(20, 20, 20);
+		opacity: 0.8;
+        padding:0;
+        width: 100%;
+        height:100%;
+	}
+	h2 {
+		font-size: 5vw;
+		transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+	}
+	.link-card:is(:hover, :focus-within) {
+		background-position: 0;
+		background-image: var(--accent-gradient);
+	}
+	.link-card:is(:hover, :focus-within) h2 {
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+	}
+</style>

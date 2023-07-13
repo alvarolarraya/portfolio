@@ -11,13 +11,17 @@ export interface Props {
 const { github, linkedin, email} = Astro.props;
 
 ---
+
+
 <div class="navbar">
-    <Hamburger />
     <Contact
         linkedin={linkedin};
         github={github};
         email={email};
     />
+</div>
+<div id="menu">
+    <Hamburger />
 </div>
 
 
@@ -28,5 +32,8 @@ const { github, linkedin, email} = Astro.props;
         background-color:rgb(20, 20, 20);
         padding: 1%;
         margin:0;
+    }
+    .menu{
+        height:100vh;
     }
 </style>
