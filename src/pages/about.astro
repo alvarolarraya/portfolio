@@ -1,0 +1,74 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+---
+
+<Layout title="about Alvaro Larraya">
+	<Navbar
+		github="https://github.com/alvarolarraya12";
+		linkedin="https://linkedin.com/in/álvaro-larraya-830700240";
+		email="https://mail.google.com/mail/?view=cm&fs=1&to=alvaro.larraya1@gmail.com";
+	/>
+	<main>
+		<video autoplay loop muted plays-inline class="back-video">
+			<source src="/imgs/paraca.mp4" type="video/mp4">
+		</video>
+        <h1>Hola</h1>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: 0;
+		padding: 10%;
+		max-width: 80%;
+		padding: 0;
+	}
+	h1 {
+		font-size: 10rm;
+		font-weight: 800;
+		margin: 0;
+		padding:5%;
+	}
+	.text-gradient {
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+	}
+	.instructions {
+		line-height: 1.6;
+		margin: 1rem 0;
+		border: 1px solid rgba(var(--accent), 25%);
+		background-color: black;
+		padding: 1rem;
+		border-radius: 0.4rem;
+	}
+	.instructions code {
+		font-size: 0.875em;
+		font-weight: bold;
+		background: rgba(var(--accent), 12%);
+		color: rgb(var(--accent));
+		border-radius: 4px;
+		padding: 0.3em 0.45em;
+	}
+	.instructions strong {
+		color: rgb(var(--accent));
+	}
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 1rem;
+		padding: 0;
+	}
+    .back-video{
+        width:auto;
+        height: 100%;
+        z-index: -1;
+        position:absolute;
+        left:0;
+        top:0;
+        opacity: .3;
+    }
+</style>
