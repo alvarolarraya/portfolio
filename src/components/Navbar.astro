@@ -12,7 +12,7 @@ const { github, linkedin, email} = Astro.props;
 
 ---
 
-
+<div id="navbar">
 <div class="contact">
     <Contact
         linkedin={linkedin};
@@ -23,9 +23,16 @@ const { github, linkedin, email} = Astro.props;
 <div id="menu">
     <Hamburger />
 </div>
+</div>
 
 
 <style>
+    #navbar{
+        position:fixed;
+        top:0;
+        width:100vi;
+        z-index: 100;
+    }
     .contact{
         top:0;
         left:0;

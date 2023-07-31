@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 import Navbar from '../components/Navbar.astro';
+import ScrollArrow from '../components/scrollArrow.astro';
 ---
 
 <Layout title="Alvaro Larraya's projects">
@@ -11,40 +12,40 @@ import Navbar from '../components/Navbar.astro';
 		email="https://mail.google.com/mail/?view=cm&fs=1&to=alvaro.larraya1@gmail.com";
 	/>
 	<main>
-		<h1>My <span class="text-gradient">projects</span></h1>
-
-		<!-- <p class="instructions">
-			To get started, open the directory <code>src/pages</code> in your project.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p> -->
-
-
-
-		<ul role="list" class="link-card-grid">
+		<h1>PROJECTS</h1>
+		<p>
+			<i><q>Setting an example is not the main means of influencing others, it is the only means.</q></i><i><br>Albert Einstein</i>
+		</p>
+		<ScrollArrow 
+				client:load
+				down="#cards"
+				up=""
+			/>
+		<ul role="list" class="link-card-grid" id="cards">
 			<!-- ahora esta puesto el link a github pero hacer una pagina dedicada -->
 			<Card
 				href="https://github.com/alvarolarraya12/bird_game"
 				title="Wriggly warty witch"
 				body="Javascript game object oriented. Your goal is to kill the witch"
-				image_path="https://github.com/alvarolarraya12/bird_game/blob/master/imgs/demo.gif?raw=true"
+				image_path="/imgs/demoBird.gif"
 			/>
 			<Card
 				href=""
 				title="Project 2"
 				body="Learn how Astro works and explore the official API docs."
-				image_path="https://www.adslzone.net/app/uploads-adslzone.net/2019/04/borrar-fondo-imagen.jpg"
+				image_path="/imgs/defaultImageProject.webp"
 			/>
 			<Card
 				href=""
 				title="Project 3"
 				body="Supercharge your project with new frameworks and libraries."
-				image_path="https://www.adslzone.net/app/uploads-adslzone.net/2019/04/borrar-fondo-imagen.jpg"
+				image_path="/imgs/defaultImageProject.webp"
 			/>
 			<Card
 				href=""
 				title="Project 4"
 				body="Explore a galaxy of community-built starter themes.😄"
-				image_path="https://www.adslzone.net/app/uploads-adslzone.net/2019/04/borrar-fondo-imagen.jpg"
+				image_path="/imgs/defaultImageProject.webp"
 			/>
 		</ul>
 	</main>
@@ -57,36 +58,18 @@ import Navbar from '../components/Navbar.astro';
 		max-width: 80%;
 		padding: 0;
 	}
-	h1 {
-		font-size: 3rem;
-		font-weight: 800;
-		margin: 0;
-		padding:5%;
+	h1{
+		padding-top: 10%;
+		padding-bottom: 0;
+		background-size: 110%;
 	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
+	p {
+		display: grid;
+		place-items: center;
+		padding: 4%;
+		padding-bottom: 0px;
 	}
-	.instructions {
-		line-height: 1.6;
-		margin: 1rem 0;
-		border: 1px solid rgba(var(--accent), 25%);
-		background-color: black;
-		padding: 1rem;
-		border-radius: 0.4rem;
-	}
-	.instructions code {
-		font-size: 0.875em;
-		font-weight: bold;
-		background: rgba(var(--accent), 12%);
-		color: rgb(var(--accent));
-		border-radius: 4px;
-		padding: 0.3em 0.45em;
-	}
-	.instructions strong {
+	p i {
 		color: rgb(var(--accent));
 	}
 	.link-card-grid {
@@ -94,5 +77,11 @@ import Navbar from '../components/Navbar.astro';
 		grid-template-columns: repeat(auto-fit, 48%);
 		gap: 1rem;
 		padding: 0;
+	}
+	#cards{
+		padding-top: 7%;
+	}
+	q{
+		color: rgb(255, 10, 10);
 	}
 </style>

@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
+import HandWrittenName from '../components/HandWrittenName.jsx';
 ---
 
 <Layout title="Alvaro Larraya's portfolio">
@@ -10,22 +11,19 @@ import Navbar from '../components/Navbar.astro';
 		email="https://mail.google.com/mail/?view=cm&fs=1&to=alvaro.larraya1@gmail.com";
 	/>
 	<main>
-		
+		<video loop plays-inline controls controlslist="nodownload" disablepictureinpicture>
+			<source src="/videos/presentation.mp4" type="video/mp4">
+		</video>
 	</main>
 </Layout>
 
 <style>
 	main {
-		margin: auto;
-		padding: 10%;
-		max-width: 80%;
-		padding: 0;
-	}
-	h1 {
-		font-size: 3rem;
-		font-weight: 800;
-		margin: 0;
-		padding:5%;
+		margin-top: 3vh;
+		display: flex;
+  		justify-content: center;
+		align-items: center;
+		height: 97vh;
 	}
 	.text-gradient {
 		background-image: var(--accent-gradient);
@@ -34,29 +32,18 @@ import Navbar from '../components/Navbar.astro';
 		background-size: 400%;
 		background-position: 0%;
 	}
-	.instructions {
-		line-height: 1.6;
-		margin: 1rem 0;
-		border: 1px solid rgba(var(--accent), 25%);
-		background-color: black;
-		padding: 1rem;
-		border-radius: 0.4rem;
-	}
-	.instructions code {
-		font-size: 0.875em;
-		font-weight: bold;
-		background: rgba(var(--accent), 12%);
-		color: rgb(var(--accent));
-		border-radius: 4px;
-		padding: 0.3em 0.45em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent));
-	}
 	.link-card-grid {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
 		gap: 1rem;
 		padding: 0;
+	}
+	#handWritten{
+		padding-top: 20%;
+		display: grid;
+		justify-items: center;
+	}
+	video{
+		height: 100%;
 	}
 </style>

@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
+import HandWrittenName from '../components/HandWrittenName.jsx';
+import ScrollArrow from '../components/scrollArrow.astro';
 ---
 
 <Layout title="about Alvaro Larraya">
@@ -10,65 +12,73 @@ import Navbar from '../components/Navbar.astro';
 		email="https://mail.google.com/mail/?view=cm&fs=1&to=alvaro.larraya1@gmail.com";
 	/>
 	<main>
-		<video autoplay loop muted plays-inline class="back-video">
-			<source src="/imgs/paraca.mp4" type="video/mp4">
-		</video>
-        <h1>Hola</h1>
+		<div id="mainDiv">
+			<video autoplay loop muted plays-inline class="back-video">
+				<source src="/videos/parachute.mp4" type="video/mp4">
+			</video>
+			<div id="handWritten"><HandWrittenName client:load /></div>
+			<ScrollArrow 
+				client:load
+				down="#presentation"
+				up="#mainDiv"
+			/>
+		</div>
+		<div id="presentation">
+			<img id="myPhoto" src="/imgs/meBig.webp" alt="Mi foto">
+			<p>Aiming to be a <b>Data Scientist</b> in <b>Madrid</b>. I'm very excited about both the city and the job. 
+				Challenges like these constitute a great environment to develop new soft and technical skills, so I'll seize the opportunity to make it a reality. See you soon. 😄</p>
+		</div>
 	</main>
 </Layout>
 
+<link href='https://fonts.googleapis.com/css?family=Caveat' rel='stylesheet'>
 <style>
-	main {
-		margin: 0;
-		padding: 10%;
-		max-width: 80%;
-		padding: 0;
-	}
-	h1 {
-		font-size: 10rm;
-		font-weight: 800;
-		margin: 0;
-		padding:5%;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-	.instructions {
-		line-height: 1.6;
-		margin: 1rem 0;
-		border: 1px solid rgba(var(--accent), 25%);
-		background-color: black;
-		padding: 1rem;
-		border-radius: 0.4rem;
-	}
-	.instructions code {
-		font-size: 0.875em;
-		font-weight: bold;
-		background: rgba(var(--accent), 12%);
-		color: rgb(var(--accent));
-		border-radius: 4px;
-		padding: 0.3em 0.45em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent));
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 1rem;
-		padding: 0;
-	}
     .back-video{
-        width:auto;
-        height: 100%;
+        width:100%;
         z-index: -1;
         position:absolute;
         left:0;
         top:0;
         opacity: .3;
     }
+	#handWritten{
+		padding-top: 20%;
+		display: grid;
+		justify-items: center;
+	}
+	#mainDiv{
+		height: 100vh;
+	}
+	#presentation{
+		height: 100vh;
+		width: 100vw;
+		display: grid;
+		justify-items: center;
+	}
+	#myPhoto{
+		padding-top: 5%;
+	}
+	span{
+		height: 100vh;
+		display: inline;
+		position: relative;
+		
+	}
+	p{
+		color:rgb(216, 216, 216);
+		font-size:3rem;
+		font-family: "Caveat";
+		margin: 0px;
+		text-align: center;
+		margin-left: 15%;
+		margin-right: 15%;
+	}
+	b{
+		color:white;
+		font-size:4rem;
+	}
+	.presentationParagraph{
+		display:flex;
+		justify-content: center;
+	}
 </style>
