@@ -2,12 +2,12 @@
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 import Navbar from '../components/Navbar.astro';
-import ScrollArrow from '../components/scrollArrow.astro';
+import ScrollArrow from '../components/ScrollArrow.astro';
 ---
 
 <Layout title="Alvaro Larraya's projects">
 	<Navbar
-		github="https://github.com/alvarolarraya12";
+		github="https://github.com/alvarolarraya";
 		linkedin="https://linkedin.com/in/álvaro-larraya-830700240";
 		email="https://mail.google.com/mail/?view=cm&fs=1&to=alvaro.larraya1@gmail.com";
 	/>
@@ -22,30 +22,37 @@ import ScrollArrow from '../components/scrollArrow.astro';
 				up=""
 			/>
 		<ul role="list" class="link-card-grid" id="cards">
-			<!-- ahora esta puesto el link a github pero hacer una pagina dedicada -->
 			<Card
-				href="https://github.com/alvarolarraya12/bird_game"
+				href="./bird"
 				title="Wriggly warty witch"
 				body="Javascript game object oriented. Your goal is to kill the witch"
 				image_path="/imgs/demoBird.gif"
+				transition_image="bird_img"
+				transition_title="bird_ttl"
 			/>
 			<Card
 				href=""
 				title="Project 2"
 				body="Learn how Astro works and explore the official API docs."
 				image_path="/imgs/defaultImageProject.webp"
+				transition_image=""
+				transition_title=""
 			/>
 			<Card
 				href=""
 				title="Project 3"
 				body="Supercharge your project with new frameworks and libraries."
 				image_path="/imgs/defaultImageProject.webp"
+				transition_image=""
+				transition_title=""
 			/>
 			<Card
 				href=""
 				title="Project 4"
 				body="Explore a galaxy of community-built starter themes.😄"
 				image_path="/imgs/defaultImageProject.webp"
+				transition_image=""
+				transition_title=""
 			/>
 		</ul>
 	</main>

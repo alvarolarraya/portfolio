@@ -5,13 +5,6 @@ export interface Props{
 }
 const { up,down } = Astro.props;
 ---
-<script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
-<script>
-document.documentElement.dataset.scroll = 0;
-document.addEventListener('scroll', () => {
-    document.documentElement.dataset.scroll = window.scrollY;
-});
-</script>
 
 <a href={down}>
     <lord-icon
@@ -23,7 +16,6 @@ document.addEventListener('scroll', () => {
     </lord-icon>
 </a>
 
-<script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
 <a href={up}>
     <lord-icon
         id="upArrow"
@@ -40,6 +32,7 @@ document.addEventListener('scroll', () => {
         bottom: 10px;
         width: 10%;
         height: 10%;
+        z-index: 100;
     }
 
     html:not([data-scroll='0']) #downArrow{
@@ -50,3 +43,11 @@ document.addEventListener('scroll', () => {
         display:none;
     }
 </style>
+
+
+<script>
+document.documentElement.dataset.scroll = 0;
+document.addEventListener('scroll', () => {
+    document.documentElement.dataset.scroll = window.scrollY;
+});
+</script>
