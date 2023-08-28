@@ -1,8 +1,9 @@
 ---
 import Navbar from '../components/Navbar.astro';
-import ScrollArrow from '../components/scrollArrow.astro';
-import BackArrow from '../components/backArrow.astro';
+import ScrollArrow from '../components/ScrollArrow.jsx';
+import BackArrow from '../components/BackArrow.astro';
 const { frontmatter } = Astro.props;
+import React from 'react';
 
 const { title, description, image, transition_image, transition_title, github} = frontmatter;
 
@@ -18,6 +19,8 @@ var title_transition = "view-transition-name:"+transition_title
   <meta name="generator" content={Astro.generator} />
   <title>{title}</title>
   <meta name="description" content={description} />
+  <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+  <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
 </head>
 
 <body>
@@ -27,22 +30,22 @@ var title_transition = "view-transition-name:"+transition_title
 		  linkedin="https://linkedin.com/in/álvaro-larraya-830700240";
 		  email="https://mail.google.com/mail/?view=cm&fs=1&to=alvaro.larraya1@gmail.com";
 	  />
-    <ScrollArrow 
-				client:load
+    <ScrollArrow
 				down="#content"
-				up=""
+				up="#"
+				client:only="react"
 			/>
+    <BackArrow
+      link="/projects/";
+    />
     <div id="title">
-      <BackArrow
-        link="/projects/";
-      />
-      <h1 class="h2" style={title_transition}>{title}</h1>
+      <h1 style={title_transition}>{title}</h1>
     </div>
+    
   </header>
   <div id="divPhoto">
     <a id="githubLink" href={github} target="_blank">
       <img id="projectImage" src={image} alt="" style={transition}>
-      <!-- <img id="githubIcon" src=/imgs/playIcon.png alt=""> -->
       <svg id="githubIcon" xmlns="http://www.w3.org/2000/svg" class="bi bi-github" viewBox="0 0 16 16">
           <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
       </svg>
@@ -73,7 +76,7 @@ var title_transition = "view-transition-name:"+transition_title
 		font-size: 5rem;
 		font-weight: 800;
 		margin: 0;
-		padding:3%;
+		padding:5vh;
 		display: grid;
   		place-items: center;
 		  background-image: var(--accent-gradient);
@@ -92,8 +95,8 @@ var title_transition = "view-transition-name:"+transition_title
     border-bottom-style: solid;
     border-bottom-color: transparent;
     border-image: linear-gradient(to right, #990000, white) 1;
-    margin-top:5%;
     margin-bottom:2%;
+    margin-top:15vh;
   }
   section{
     margin-top:3%;
@@ -112,7 +115,6 @@ var title_transition = "view-transition-name:"+transition_title
     transform: translate(-50%,10%);
     fill:white;
     width: 50%;
-    /* height: 100%; */
   }
   #githubLink{
     position:relative;
@@ -129,15 +131,19 @@ var title_transition = "view-transition-name:"+transition_title
   #divPhoto{
     position: relative;
     width: 100%;
-    height: 100vh;
+    /* height: 100vh; */
+  }
+  #content{
+    padding-top:10vh;
+    margin-top:90vh;
+    margin-bottom:50vh;
   }
 </style>
 
 <script>
-	window.navigation.addEventListener('navigate', (event)=>{
+	window.navigation.addEventListener('navigate', (event:any)=>{
 		const toUrl = new URL(event.destination.url)
-		if(location.origin != toUrl.origin) return
-		if (toUrl.href.indexOf('#') > -1) return
+		if((location.origin != toUrl.origin)||(toUrl.href.indexOf('#') > -1)||(toUrl.href.indexOf('projects') == -1)) return
 		event.intercept({
 			async handler (){
 				const response = await fetch(toUrl.pathname)

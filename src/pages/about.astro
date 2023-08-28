@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import HandWrittenName from '../components/HandWrittenName.jsx';
-import ScrollArrow from '../components/ScrollArrow.astro';
+import ScrollArrow from '../components/ScrollArrow.jsx';
 ---
 
 <Layout title="about Alvaro Larraya">
@@ -17,10 +17,10 @@ import ScrollArrow from '../components/ScrollArrow.astro';
 				<source src="/videos/parachute.mp4" type="video/mp4">
 			</video>
 			<div id="handWritten"><HandWrittenName client:load /></div>
-			<ScrollArrow 
-				client:load
+			<ScrollArrow
 				down="#presentation"
 				up="#mainDiv"
+				client:only="react"
 			/>
 		</div>
 		<div id="presentation">

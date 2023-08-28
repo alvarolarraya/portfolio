@@ -2,7 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 import Navbar from '../components/Navbar.astro';
-import ScrollArrow from '../components/ScrollArrow.astro';
+import ScrollArrow from '../components/ScrollArrow.jsx';
+import React from 'react';
 ---
 
 <Layout title="Alvaro Larraya's projects">
@@ -16,15 +17,15 @@ import ScrollArrow from '../components/ScrollArrow.astro';
 		<p>
 			<i><q>Setting an example is not the main means of influencing others, it is the only means.</q></i><i><br>Albert Einstein</i>
 		</p>
-		<ScrollArrow 
-				client:load
+		<ScrollArrow
 				down="#cards"
-				up=""
+				up="#"
+				client:only="react"
 			/>
 		<ul role="list" class="link-card-grid" id="cards">
 			<Card
 				href="./bird"
-				title="Wriggly warty witch"
+				title="Wriggly Warty Witch"
 				body="Javascript game object oriented. Your goal is to kill the witch"
 				image_path="/imgs/demoBird.gif"
 				transition_image="bird_img"
@@ -92,3 +93,20 @@ import ScrollArrow from '../components/ScrollArrow.astro';
 		color: rgb(255, 10, 10);
 	}
 </style>
+
+<script>
+	window.navigation.addEventListener('navigate', (event:any)=>{
+		const toUrl = new URL(event.destination.url)
+		if((location.origin != toUrl.origin)||(toUrl.href.indexOf('#') > -1)||(toUrl.href.indexOf('projects') == -1)) return
+		event.intercept({
+			async handler (){
+				const response = await fetch(toUrl.pathname)
+				const text = await response.text()
+				document.startViewTransition(()=>{
+					document.body.innerHTML = text
+					document.documentElement.scrollTop = 0
+				})
+			}
+		})
+	})
+</script>
