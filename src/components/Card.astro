@@ -6,15 +6,15 @@ export interface Props {
 	image_path: string;
 	transition_image: string;
 	transition_title:string;
+	card:string;
 }
 
-const { href, title, body, image_path, transition_image, transition_title } = Astro.props;
+const { href, title, body, image_path, transition_image, transition_title,card } = Astro.props;
 
 var transition = "view-transition-name:"+transition_image
 var title_transition = "view-transition-name:"+transition_title
 ---
-
-<li class="link-card">
+<li id={card} class="link-card">
 	<a href={href}>
 		<h2 style={title_transition}>
 			{title}
@@ -29,6 +29,7 @@ var title_transition = "view-transition-name:"+transition_title
 	.link-card img {
 		width:100%;
 		border-radius: 0.6rem;
+		aspect-ratio: 16/9;
 	}
 	.link-card {
 		text-align: center;

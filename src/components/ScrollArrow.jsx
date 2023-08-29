@@ -2,7 +2,12 @@
 import './ScrollArrow.css';
 
 export default function ScrollArrow({up,down}) {
-    document.documentElement.dataset.scroll = "0";
+    if(document.documentElement.scrollTop == 0){
+        document.documentElement.dataset.scroll = "0";
+    }
+    else{
+        document.documentElement.dataset.scroll = window.scrollY;
+    }
     document.addEventListener('scroll', () => {
         document.documentElement.dataset.scroll = window.scrollY;
     });

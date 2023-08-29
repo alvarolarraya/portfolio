@@ -24,36 +24,40 @@ import React from 'react';
 			/>
 		<ul role="list" class="link-card-grid" id="cards">
 			<Card
-				href="./bird"
+				card="1"
+				href="./tfg/"
+				title="Final college course project"
+				body="A research on simple techniques to improve a CNN applied to FER2013"
+				image_path="/imgs/tfg.webp"
+				transition_image="tfg_img"
+				transition_title="tfg_ttl"
+			/>
+			<Card
+				card="2"
+				href="./coins/"
+				title="Coin's value classification"
+				body="A predictor to put into practice some computer vision concepts"
+				image_path="/imgs/coins.webp"
+				transition_image="coins_img"
+				transition_title="coins_ttl"
+			/>
+			<Card
+				card="3"
+				href="./salary/"
+				title="Salary's range classification"
+				body="In this project the goal is to showcase some data mining skills"
+				image_path="/imgs/dataMining.webp"
+				transition_image="salary_img"
+				transition_title="salary_ttl"
+			/>
+			<Card
+				card="4"
+				href="./bird/"
 				title="Wriggly Warty Witch"
 				body="Javascript game object oriented. Your goal is to kill the witch"
 				image_path="/imgs/demoBird.gif"
 				transition_image="bird_img"
 				transition_title="bird_ttl"
-			/>
-			<Card
-				href=""
-				title="Project 2"
-				body="Learn how Astro works and explore the official API docs."
-				image_path="/imgs/defaultImageProject.webp"
-				transition_image=""
-				transition_title=""
-			/>
-			<Card
-				href=""
-				title="Project 3"
-				body="Supercharge your project with new frameworks and libraries."
-				image_path="/imgs/defaultImageProject.webp"
-				transition_image=""
-				transition_title=""
-			/>
-			<Card
-				href=""
-				title="Project 4"
-				body="Explore a galaxy of community-built starter themes.😄"
-				image_path="/imgs/defaultImageProject.webp"
-				transition_image=""
-				transition_title=""
 			/>
 		</ul>
 	</main>
@@ -97,14 +101,18 @@ import React from 'react';
 <script>
 	window.navigation.addEventListener('navigate', (event:any)=>{
 		const toUrl = new URL(event.destination.url)
-		if((location.origin != toUrl.origin)||(toUrl.href.indexOf('#') > -1)||(toUrl.href.indexOf('projects') == -1)) return
+		if((location.origin != toUrl.origin)||(toUrl.href.indexOf('#cards') > -1)||(toUrl.href.indexOf('projects') == -1)) return
 		event.intercept({
 			async handler (){
 				const response = await fetch(toUrl.pathname)
 				const text = await response.text()
 				document.startViewTransition(()=>{
-					document.body.innerHTML = text
-					document.documentElement.scrollTop = 0
+					document.body.innerHTML = text;
+					if(toUrl.href.indexOf('#')==-1){
+						document.documentElement.scrollTop = 0;
+					}else{
+						document.getElementById(toUrl.href.substring(toUrl.href.indexOf('#')+1)).scrollIntoView();
+					}
 				})
 			}
 		})
