@@ -8,9 +8,9 @@ const { total,currentPage} = Astro.props;
 let pageNumbers = Array.from({ length: total-1 }, (x, i) => i);
 ---
 <div id="paginationDiv">
-  {(currentPage==1) ? <a class="currentPage" href="/projects/">1</a> : <a href="/projects/">1</a>}
+  {(currentPage==1) ? <p class="currentPage">1</p> : <a href="/projects/">1</a>}
   {pageNumbers.map(pageNumber =>
-    (currentPage==(pageNumber+2)) ? <a class="currentPage" href={"/projects/"+(pageNumber+2)}>{pageNumber+2}</a> : <a href={"/projects/"+(pageNumber+2)}>{pageNumber+2}</a>)}
+    (currentPage==(pageNumber+2)) ? <p class="currentPage">{pageNumber+2}</p> : <a href={"/projects/"+(pageNumber+2)}>{pageNumber+2}</a>)}
 </div><br>
 
 <style>
@@ -43,5 +43,9 @@ let pageNumbers = Array.from({ length: total-1 }, (x, i) => i);
     .currentPage{
       background-color: rgb(var(--accent));
       font-size: 2.5em;
+      border-radius: 0.6rem;
+      border: 2px solid rgb(var(--accent));
+      padding: 1%;
+      margin: 1%;
     }
 </style>

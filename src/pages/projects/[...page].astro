@@ -8,7 +8,7 @@ import { currentPage } from '../../currentPage';
 export async function getStaticPaths({ paginate }){
 	const projects = await Astro.glob('./*.md');
 	return paginate(projects, {
-		pageSize:10,
+		pageSize:8,
 	})
 }
 const {page} = Astro.props;
@@ -86,5 +86,19 @@ currentPage.set(page.currentPage);
 	}
 	q{
 		color: rgb(255, 10, 10);
+	}
+	@media only screen and (max-width: 600px){
+		/* Big smartphones */
+		h1{
+			font-size:3rem;
+			margin-top: 5vh;
+		}
+	}
+	@media only screen and (max-width: 300px){
+		/* Small smartphones */
+		h1{
+			font-size:2rem;
+			margin-top: 7vh;
+		}
 	}
 </style>

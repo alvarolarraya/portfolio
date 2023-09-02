@@ -1,11 +1,11 @@
 ---
 layout: "../../layouts/ProjectsLayout.astro"
-title: ML python exercises
+title: Python exercises
 image: /imgs/python.webp
 transition_image: python_img
 transition_title: python_ttl
-description: Machine learning exercises in python
-github: https://github.com/alvarolarraya/MLPythonExercises
+description: Python exercises
+github: https://github.com/alvarolarraya/pythonExercises
 cardNumber: 10
 ---
 
