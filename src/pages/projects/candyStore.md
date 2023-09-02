@@ -1,12 +1,12 @@
 ---
 layout: "../../layouts/ProjectsLayout.astro"
-title: Salary's range classification
-image: /imgs/salary.webp
-transition_image: salary_img
-transition_title: salary_ttl
-description: In this project the goal is to showcase some data mining skills
-github: https://github.com/alvarolarraya/SalaryPredictor
-cardNumber: 3
+title: Candy store
+image: /imgs/candyStore.webp
+transition_image: candyStore_img
+transition_title: candyStore_ttl
+description: App developped in java as a group project to use Scrum framework
+github: https://github.com/alvarolarraya/candyStoreApp
+cardNumber: 22
 ---
 
 

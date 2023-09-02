@@ -1,12 +1,12 @@
 ---
 layout: "../../layouts/ProjectsLayout.astro"
-title: Salary's range classification
-image: /imgs/salary.webp
-transition_image: salary_img
-transition_title: salary_ttl
-description: In this project the goal is to showcase some data mining skills
-github: https://github.com/alvarolarraya/SalaryPredictor
-cardNumber: 3
+title: Flight agency web
+image: /imgs/flightweb.webp
+transition_image: flightWeb_img
+transition_title: flightWeb_ttl
+description: Web group project to practice scrum framework
+github: https://github.com/alvarolarraya/flightAgencyWeb
+cardNumber: 20
 ---
 
 

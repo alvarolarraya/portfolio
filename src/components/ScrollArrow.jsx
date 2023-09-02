@@ -1,5 +1,6 @@
 
 import './ScrollArrow.css';
+import React from 'react';
 
 export default function ScrollArrow({up,down}) {
     if(document.documentElement.scrollTop == 0){

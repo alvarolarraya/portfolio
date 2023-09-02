@@ -1,12 +1,12 @@
 ---
 layout: "../../layouts/ProjectsLayout.astro"
-title: Salary's range classification
-image: /imgs/salary.webp
-transition_image: salary_img
-transition_title: salary_ttl
-description: In this project the goal is to showcase some data mining skills
-github: https://github.com/alvarolarraya/SalaryPredictor
-cardNumber: 3
+title: Test doubles
+image: /imgs/testDouble.webp
+transition_image: testDoubles_img
+transition_title: testDoubles_ttl
+description: Set of exercises to work with different test doubles
+github: https://github.com/alvarolarraya/test_doubles
+cardNumber: 18
 ---
 
 

@@ -1,12 +1,12 @@
 ---
 layout: "../../layouts/ProjectsLayout.astro"
-title: Salary's range classification
-image: /imgs/salary.webp
-transition_image: salary_img
-transition_title: salary_ttl
-description: In this project the goal is to showcase some data mining skills
-github: https://github.com/alvarolarraya/SalaryPredictor
-cardNumber: 3
+title: Crypto wallet
+image: /imgs/bitcoin.webp
+transition_image: cryptoWallet_img
+transition_title: cryptoWallet_ttl
+description: Laravel API
+github: https://github.com/IvanSolaDelgado/crypto-wallet
+cardNumber: 16
 ---
 
 

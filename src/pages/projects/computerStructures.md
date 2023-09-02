@@ -1,12 +1,12 @@
 ---
 layout: "../../layouts/ProjectsLayout.astro"
-title: Salary's range classification
-image: /imgs/salary.webp
-transition_image: salary_img
-transition_title: salary_ttl
-description: In this project the goal is to showcase some data mining skills
-github: https://github.com/alvarolarraya/SalaryPredictor
-cardNumber: 3
+title: Computer structures
+image: /imgs/computerStructures.webp
+transition_image: computerStructures_img
+transition_title: computerStructures_ttl
+description: Computer structures
+github: https://github.com/alvarolarraya/ComputerStructures
+cardNumber: 14
 ---
 
 

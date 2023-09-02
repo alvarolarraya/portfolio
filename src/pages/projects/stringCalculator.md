@@ -1,12 +1,12 @@
 ---
 layout: "../../layouts/ProjectsLayout.astro"
-title: Salary's range classification
-image: /imgs/salary.webp
-transition_image: salary_img
-transition_title: salary_ttl
-description: In this project the goal is to showcase some data mining skills
-github: https://github.com/alvarolarraya/SalaryPredictor
-cardNumber: 3
+title: String calculator
+image: /imgs/php.webp
+transition_image: stringCalculator_img
+transition_title: stringCalculator_ttl
+description: PHP kata
+github: https://github.com/alvarolarraya/StringCalculator
+cardNumber: 17
 ---
 
 

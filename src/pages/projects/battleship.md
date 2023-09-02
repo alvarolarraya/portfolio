@@ -1,12 +1,12 @@
 ---
 layout: "../../layouts/ProjectsLayout.astro"
-title: Salary's range classification
-image: /imgs/salary.webp
-transition_image: salary_img
-transition_title: salary_ttl
-description: In this project the goal is to showcase some data mining skills
-github: https://github.com/alvarolarraya/SalaryPredictor
-cardNumber: 3
+title: Battleship online
+image: /imgs/battleship.webp
+transition_image: battleship_img
+transition_title: battleship_ttl
+description: An online terminal game coded in C with user interface
+github: https://github.com/alvarolarraya/OnlineBattleship
+cardNumber: 8
 ---
 
 

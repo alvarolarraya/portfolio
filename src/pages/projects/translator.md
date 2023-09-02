@@ -1,12 +1,12 @@
 ---
 layout: "../../layouts/ProjectsLayout.astro"
-title: Salary's range classification
-image: /imgs/salary.webp
-transition_image: salary_img
-transition_title: salary_ttl
-description: In this project the goal is to showcase some data mining skills
-github: https://github.com/alvarolarraya/SalaryPredictor
-cardNumber: 3
+title: Translator
+image: /imgs/translator.webp
+transition_image: translator_img
+transition_title: translator_ttl
+description: NLP model which translate words from english to spanish
+github: https://github.com/alvarolarraya/Translator
+cardNumber: 7
 ---
 
 

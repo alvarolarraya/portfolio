@@ -1,12 +1,12 @@
 ---
 layout: "../../layouts/ProjectsLayout.astro"
-title: Salary's range classification
-image: /imgs/salary.webp
-transition_image: salary_img
-transition_title: salary_ttl
-description: In this project the goal is to showcase some data mining skills
-github: https://github.com/alvarolarraya/SalaryPredictor
-cardNumber: 3
+title: School website
+image: /imgs/siw.webp
+transition_image: schoolWebsite_img
+transition_title: schoolWebsite_ttl
+description: My first website developed in group consuming the Microsoft API
+github: https://github.com/alvarolarraya/SchoolWebsiteMicrosoftAPI
+cardNumber: 24
 ---
 
 

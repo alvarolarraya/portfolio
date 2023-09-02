@@ -1,12 +1,12 @@
 ---
 layout: "../../layouts/ProjectsLayout.astro"
-title: Salary's range classification
-image: /imgs/salary.webp
-transition_image: salary_img
-transition_title: salary_ttl
-description: In this project the goal is to showcase some data mining skills
-github: https://github.com/alvarolarraya/SalaryPredictor
-cardNumber: 3
+title: Java exercises
+image: /imgs/java.webp
+transition_image: java_img
+transition_title: java_ttl
+description: Java exercises
+github: https://github.com/alvarolarraya/JavaExercises
+cardNumber: 15
 ---
 
 

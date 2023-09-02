@@ -30,6 +30,7 @@ var title_transition = "view-transition-name:"+transition_title
 		width:100%;
 		border-radius: 0.6rem;
 		aspect-ratio: 16/9;
+        filter: grayscale(100%);
 	}
 	.link-card {
 		text-align: center;
@@ -78,5 +79,8 @@ var title_transition = "view-transition-name:"+transition_title
 	}
 	.link-card:is(:hover, :focus-within) p {
 		color:white;
+	}
+    .link-card:is(:hover, :focus-within) img {
+		filter: grayscale(0%);
 	}
 </style>

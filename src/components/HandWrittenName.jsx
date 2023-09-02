@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import './HandWrittenName.css';
+import React from "react";
 
 const draw = {
     hidden: { 

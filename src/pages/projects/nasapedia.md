@@ -1,12 +1,12 @@
 ---
 layout: "../../layouts/ProjectsLayout.astro"
-title: Salary's range classification
-image: /imgs/salary.webp
-transition_image: salary_img
-transition_title: salary_ttl
-description: In this project the goal is to showcase some data mining skills
-github: https://github.com/alvarolarraya/SalaryPredictor
-cardNumber: 3
+title: Nasapedia
+image: /imgs/nasapedia.webp
+transition_image: nasapedia_img
+transition_title: nasapedia_ttl
+description: A web consuming NASA API to present information in a more visual manner
+github: https://github.com/alvarolarraya/nasapedia
+cardNumber: 9
 ---
 
 

@@ -1,0 +1,47 @@
+---
+export interface Props {
+	total:number;
+  currentPage:number;
+}
+
+const { total,currentPage} = Astro.props;
+let pageNumbers = Array.from({ length: total-1 }, (x, i) => i);
+---
+<div id="paginationDiv">
+  {(currentPage==1) ? <a class="currentPage" href="/projects/">1</a> : <a href="/projects/">1</a>}
+  {pageNumbers.map(pageNumber =>
+    (currentPage==(pageNumber+2)) ? <a class="currentPage" href={"/projects/"+(pageNumber+2)}>{pageNumber+2}</a> : <a href={"/projects/"+(pageNumber+2)}>{pageNumber+2}</a>)}
+</div><br>
+
+<style>
+  #paginationDiv{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 2%;
+      padding: 0;
+      /* border-radius: 0.6rem; */
+      border: 0;
+    }
+    a {
+      font-size: 2em;
+      color: white;
+      text-decoration: none;
+      transition: background-color .3s;
+      cursor: none;
+      border-radius: 0.6rem;
+      border: 2px solid rgb(var(--accent));
+      padding: 1%;
+      margin: 1%;
+    }
+    #paginationDiv a:hover:not(.active) {
+      background-color: black;
+    }
+    #paginationDiv a:hover{
+      text-decoration: underline;
+      text-decoration-color: rgb(var(--accent));
+    }
+    .currentPage{
+      background-color: rgb(var(--accent));
+    }
+</style>

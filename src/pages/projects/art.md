@@ -1,12 +1,12 @@
 ---
 layout: "../../layouts/ProjectsLayout.astro"
-title: Salary's range classification
-image: /imgs/salary.webp
-transition_image: salary_img
-transition_title: salary_ttl
-description: In this project the goal is to showcase some data mining skills
-github: https://github.com/alvarolarraya/SalaryPredictor
-cardNumber: 3
+title: Art exhibition organizer
+image: /imgs/art.webp
+transition_image: art_img
+transition_title: art_ttl
+description: Clustering paintings and their metadata create an 'interesting' exposition
+github: https://github.com/alvarolarraya/ArtClustering
+cardNumber: 6
 ---
 
 

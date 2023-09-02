@@ -2,14 +2,19 @@
 import Navbar from '../components/Navbar.astro';
 import ScrollArrow from '../components/ScrollArrow.jsx';
 import BackArrow from '../components/BackArrow.astro';
+import { currentPage } from '../currentPage';
 const { frontmatter } = Astro.props;
-import React from 'react';
-
 const { title, description, image, transition_image, transition_title, github,cardNumber} = frontmatter;
 
 var transition = "view-transition-name:"+transition_image
 var title_transition = "view-transition-name:"+transition_title
-var linkBack = "/projects/#"+cardNumber;
+
+var linkBack;
+if(currentPage.get() == 1){
+  linkBack = "/projects/#"+cardNumber;
+}else{
+  linkBack = "/projects/"+currentPage.get()+"#"+cardNumber;
+}
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -33,7 +38,7 @@ var linkBack = "/projects/#"+cardNumber;
 	  />
     <ScrollArrow
 				down="#content"
-				up="/projects/"
+				up="#"
 				client:only="react"
 			/>
     <BackArrow
@@ -72,6 +77,7 @@ var linkBack = "/projects/#"+cardNumber;
   html{
     background-color:#1a1a1a;
     color:white;
+    font-family: system-ui, sans-serif;
   }
   h1 {
 		font-size: 5rem;
@@ -106,9 +112,11 @@ var linkBack = "/projects/#"+cardNumber;
     position: absolute;
   }
   #projectImage{
-    width:100%;
+    width:99%;
     top:0;
     aspect-ratio: 16/9;
+    background-color: aliceblue;
+    border-radius: 0.6rem;
   }
   #githubIcon{
     opacity: 0;
@@ -123,9 +131,12 @@ var linkBack = "/projects/#"+cardNumber;
     display: block;
     margin: 0 auto;
     width: 70%;
+    display: flex;
+    justify-content: center;
   }
   #githubLink:hover #projectImage{
     opacity: 0.5;
+    width:100%;
   }
   #githubLink:hover #githubIcon{
     opacity: 1;

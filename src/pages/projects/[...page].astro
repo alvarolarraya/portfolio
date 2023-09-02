@@ -1,0 +1,90 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Card from '../../components/Card.astro';
+import Navbar from '../../components/Navbar.astro';
+import ScrollArrow from '../../components/ScrollArrow.jsx';
+import Pagination from '../../components/Pagination.astro';
+import { currentPage } from '../../currentPage';
+export async function getStaticPaths({ paginate }){
+	const projects = await Astro.glob('./*.md');
+	return paginate(projects, {
+		pageSize:10,
+	})
+}
+const {page} = Astro.props;
+currentPage.set(page.currentPage);
+---
+
+<Layout title="Alvaro Larraya's projects">
+	<Navbar
+		github="https://github.com/alvarolarraya";
+		linkedin="https://linkedin.com/in/álvaro-larraya-830700240";
+		email="https://mail.google.com/mail/?view=cm&fs=1&to=alvaro.larraya1@gmail.com";
+	/>
+	<main>
+		<h1>PROJECTS</h1>
+		<p>
+			<i><q>Setting an example is not the main means of influencing others, it is the only means.</q></i><i><br>Albert Einstein</i>
+		</p><br>
+		<ScrollArrow
+            down="#cards"
+            up="#"
+            client:only="react"
+        />
+
+        <Pagination
+            total={page.lastPage}
+            currentPage={page.currentPage}/>
+        
+
+		<ul role="list" class="link-card-grid" id="cards">
+			{page.data.map(project => 
+					<Card
+						card={project.frontmatter.cardNumber}
+                        href={project.url}
+						title={project.frontmatter.title}
+						body={project.frontmatter.description}
+						image_path={project.frontmatter.image}
+						transition_image={project.frontmatter.transition_image}
+						transition_title={project.frontmatter.transition_title}
+					/>
+				)
+			}
+		</ul>        
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 10%;
+		max-width: 80%;
+		padding: 0;
+	}
+	h1{
+		padding-top: 10%;
+		padding-bottom: 0;
+		background-size: 110%;
+	}
+	p {
+		display: grid;
+		place-items: center;
+		padding: 4%;
+		padding-bottom: 0px;
+	}
+	p i {
+		color: rgb(var(--accent));
+	}
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, 48%);
+		gap: 1rem;
+		padding: 0;
+	}
+	#cards{
+		padding-top: 2%;
+	}
+	q{
+		color: rgb(255, 10, 10);
+	}
+</style>
