@@ -28,20 +28,20 @@ let pageNumbers = Array.from({ length: total-1 }, (x, i) => i);
       color: white;
       text-decoration: none;
       transition: background-color .3s;
-      cursor: none;
+      cursor:default;
       border-radius: 0.6rem;
       border: 2px solid rgb(var(--accent));
       padding: 1%;
       margin: 1%;
     }
-    #paginationDiv a:hover:not(.active) {
-      background-color: black;
-    }
-    #paginationDiv a:hover{
+    #paginationDiv a:hover:not(.currentPage){
       text-decoration: underline;
       text-decoration-color: rgb(var(--accent));
+      background-color: black;
+      cursor: none;
     }
     .currentPage{
       background-color: rgb(var(--accent));
+      font-size: 2.5em;
     }
 </style>
