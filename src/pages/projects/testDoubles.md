@@ -28,6 +28,7 @@ cardNumber: 18
     padding-bottom:2vh;
     margin-bottom:4vh;
     border-bottom: 3px rgb(var(--accent)) dashed;
+    margin-top:15vh;
   }
   p{
     text-align: center;
@@ -41,9 +42,6 @@ cardNumber: 18
   b{
     font-size: 4rem;
     background-color: #2E2E2E;
-  }
-  div{
-    margin-bottom:15vh;
   }
   #playLink{
     text-align: center;

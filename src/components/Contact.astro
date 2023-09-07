@@ -27,48 +27,56 @@ const { github, linkedin, email} = Astro.props;
 </div>
 
 <style>
-    .navbar{
-        top:0;
-        left:0;
-        background-color:rgb(20, 20, 20);
-        padding: 1%;
-        margin:0;
-    }
     .contact{
         position: relative;
         background-color:rgb(20, 20, 20);
-        padding-left: 3%;
         display:inline;
+        padding: 0;
     }
     a{
         display:inline;
-        padding:2%;
         color:rgb(20, 20, 20);
         
     }
-    a:is(:hover) svg{
-		width:3%;
-		fill: white;
-	}
-    a:is(:active, :focus-within) svg{
-		outline:0;
-	}
 	svg{
-        width:2%;
-        height:2%;
+        padding:1vw;
+        padding-left: 6vw;
+        width:2.5vw;
+        height:2.5vw;
         fill:rgb(var(--accent));
     }
-    @media only screen and (max-width: 600px){
-        /*Big smartphones*/
+    @media only screen and (min-width: 1200px){
+        a:is(:hover) svg{
+            height:3vw;
+            width:3vw;
+            fill: white;
+        }
+    }
+    @media only screen and (max-width: 1200px){
         svg{
-            width:8%;
-            height:8%;
+            padding:1vw;
+            padding-left: 8vw;
+            width:3vw;
+            height:3vw;
+            fill:rgb(var(--accent));
         }
-        div{
-            padding: 3%;
+    }
+    @media only screen and (max-width: 600px){
+        svg{
+            padding:1vw;
+            padding-left: 10vw;
+            width:4vw;
+            height:4vw;
+            fill:rgb(var(--accent));
         }
-        a{
-            padding:7%;
+    }
+    @media only screen and (max-width: 450px){
+        svg{
+            padding:1vw;
+            padding-left: 13vw;
+            width:7vw;
+            height:7vw;
+            fill:rgb(var(--accent));
         }
     }
 </style>

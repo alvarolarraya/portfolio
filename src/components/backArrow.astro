@@ -12,19 +12,48 @@ const { link } = Astro.props;
 
 <style>
     svg{
-        fill:#990000;
+        fill:#1a1a1a;
+        background-color: rgb(var(--accent));
+        border-radius: 50% 50% 50% 50%;
         margin:0;
         z-index: 99;
         position:fixed;
-        top:20vh;
+        top:8.5vw;
         left: 5vw;
-        width: 4vw;
-        height: 10vh;
+        width:3.5vw;
+        height:3.5vw;
     }
-    svg:hover{
-        fill:white;
-    }
-    a{
-        width:0;
-    }
+    @media only screen and (min-width: 1200px){
+		a:hover svg{
+            background-color: white;
+            width:4vw;
+            height:4vw;
+            left: 4.75vw;
+            top:8.25vw;
+        }
+	}
+    @media only screen and (max-width: 1200px){
+		svg{      
+            top:22vw;  
+            left: 7vw;
+            width:5vw;
+            height:5vw;
+        }
+	}
+    @media only screen and (max-width: 600px){
+		svg{      
+            top:26vw;  
+            left: 7vw;
+            width:7vw;
+            height:7vw;
+        }
+	}
+    @media only screen and (max-width: 450px){
+		svg{   
+            top:30.5vw;     
+            left: 7vw;
+            width:8vw;
+            height:8vw;
+        }
+	}
 </style>

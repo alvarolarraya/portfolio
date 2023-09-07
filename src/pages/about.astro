@@ -48,7 +48,7 @@ import ScrollArrow from '../components/ScrollArrow.jsx';
 		display:none;
 	}
 	#handWritten{
-		padding-top: 20%;
+		padding-top: 10vh;
 		display: grid;
 		justify-items: center;
 	}
@@ -63,6 +63,7 @@ import ScrollArrow from '../components/ScrollArrow.jsx';
 	}
 	#myPhoto{
 		padding-top: 5%;
+		width: 25vw;
 	}
 	span{
 		height: 100vh;
@@ -87,13 +88,23 @@ import ScrollArrow from '../components/ScrollArrow.jsx';
 		display:flex;
 		justify-content: center;
 	}
+	@media only screen and (max-width: 1100px){
+		/* Tablets */
+		#myPhoto{
+			padding-top: 5%;
+			width: 35vw;
+		}
+	}
 	@media only screen and (max-width: 600px){
 		/* Big smartphones */
-		html, body{
+		.back-video{			
 			width: 100vw;
 		}
-		.back-video{			
-			height: 100vh;
+		p{
+			font-size:2rem;
+		}
+		b{
+			font-size:2.5rem;
 		}
 		#pcVideo{
 			display: none;
@@ -101,11 +112,14 @@ import ScrollArrow from '../components/ScrollArrow.jsx';
 		#mobileVideo{
 			display: block;
 		}
-		p{
-			font-size:2rem;
+		#handWritten{
+			padding-top: 40vh;
 		}
-		b{
-			font-size:3rem;
+	}
+	@media only screen and (max-width: 450px){
+		/* Tablets */
+		#handWritten{
+			padding-top: 15vh;
 		}
 	}
 </style>

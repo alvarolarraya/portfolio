@@ -10,8 +10,8 @@ import Navbar from '../components/Navbar.astro';
 		email="https://mail.google.com/mail/?view=cm&fs=1&to=alvaro.larraya1@gmail.com";
 	/>
 	<main>
-		<video loop plays-inline controls controlslist="nodownload" disablepictureinpicture>
-			<source src="/videos/presentation.mp4" type="video/mp4">
+		<video id="videoPc" loop plays-inline controls controlslist="nodownload" disablepictureinpicture>
+			<source src="/videos/welcome.mp4" type="video/mp4">
 		</video>
 	</main>
 </Layout>
@@ -43,6 +43,7 @@ import Navbar from '../components/Navbar.astro';
 		justify-items: center;
 	}
 	video{
-		height: 100%;
+		height: 100vh;
+		width:100vw;
 	}
 </style>
