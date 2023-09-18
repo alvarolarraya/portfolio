@@ -8,6 +8,4 @@ export default defineConfig({
     drafts: true
   },
   integrations: [react()],
-  output: "server",
-  adapter: netlify()
 });

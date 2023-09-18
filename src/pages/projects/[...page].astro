@@ -4,7 +4,7 @@ import Card from '../../components/Card.astro';
 import Navbar from '../../components/Navbar.astro';
 import ScrollArrow from '../../components/ScrollArrow.jsx';
 import Pagination from '../../components/Pagination.astro';
-import { currentPage } from '../../currentPage';
+import { currentPage } from '../../currentPage.js';
 export async function getStaticPaths({ paginate }){
 	const projects = await Astro.glob('./*.md');
 	return paginate(projects, {
