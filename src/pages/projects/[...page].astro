@@ -8,7 +8,7 @@ import { currentPage } from '../../currentPage';
 export async function getStaticPaths({ paginate }){
 	const projects = await Astro.glob('./*.md');
 	return paginate(projects, {
-		pageSize:8,
+		pageSize:10,
 	})
 }
 const {page} = Astro.props;
@@ -24,7 +24,7 @@ currentPage.set(page.currentPage);
 	<main>
 		<h1>PROJECTS</h1>
 		<p>
-			<i><q>Setting an example is not the main means of influencing others, it is the only means.</q></i><i><br>Albert Einstein</i>
+			<i>What better way to certificate skills than by showing examples using it?</i>
 		</p><br>
 		<ScrollArrow
             down="#cards"
@@ -47,6 +47,9 @@ currentPage.set(page.currentPage);
 						image_path={project.frontmatter.image}
 						transition_image={project.frontmatter.transition_image}
 						transition_title={project.frontmatter.transition_title}
+						aiRelated={project.frontmatter.aiRelated}
+						hasDedicatedPage={project.frontmatter.hasDedicatedPage}
+						github={project.frontmatter.github}
 					/>
 				)
 			}
@@ -84,9 +87,6 @@ currentPage.set(page.currentPage);
 	#cards{
 		padding-top: 2%;
 	}
-	q{
-		color: rgb(255, 10, 10);
-	}
 	@media only screen and (max-width: 1200px){
 		.link-card-grid {
 			display: grid;
@@ -108,3 +108,22 @@ currentPage.set(page.currentPage);
 		}
 	}
 </style>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.9/sweetalert2.min.css" integrity="sha512-cyIcYOviYhF0bHIhzXWJQ/7xnaBuIIOecYoPZBgJHQKFPo+TOBA+BY1EnTpmM8yKDU4ZdI3UGccNGCEUdfbBqw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.9/sweetalert2.all.min.js" integrity="sha512-IZ95TbsPTDl3eT5GwqTJH/14xZ2feLEGJRbII6bRKtE/HC6x3N4cHye7yyikadgAsuiddCY2+6gMntpVHL1gHw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+	if ('false' != sessionStorage.getItem('projectsFirstVisit')) {
+		Swal.fire({
+			title: '<strong><u>Info</u></strong>',
+			html: "The project's cards with <strong style='color:rgb(255, 80, 80);'>red background</strong> have an explanatory page while the <strong style='color:white;'>white background</strong> ones redirect straight to the implementation code.",
+			icon: 'info',
+			confirmButtonText: 'Copy',
+			confirmButtonColor: "rgb(255, 80, 80)",
+			iconColor: "white",
+			background: 'black',
+		})
+		sessionStorage.setItem('projectsFirstVisit', 'false');
+	}
+</script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

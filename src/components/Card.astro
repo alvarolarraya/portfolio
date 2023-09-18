@@ -7,15 +7,28 @@ export interface Props {
 	transition_image: string;
 	transition_title:string;
 	card:string;
+	aiRelated:boolean;
+	github:string;
+	hasDedicatedPage:boolean;
 }
 
-const { href, title, body, image_path, transition_image, transition_title,card } = Astro.props;
+const { href, title, body, image_path, transition_image, transition_title,card,aiRelated,github,hasDedicatedPage } = Astro.props;
+
+var hoverColorBeginning,hoverColorFinal;
+if (hasDedicatedPage){
+	hoverColorBeginning = "255, 80, 80";
+	hoverColorFinal = "#990000";
+}else{
+	hoverColorBeginning="255, 255, 255";
+	hoverColorFinal="rgb(255, 255, 255)";
+}
 
 var transition = "view-transition-name:"+transition_image
 var title_transition = "view-transition-name:"+transition_title
 ---
 <li id={card} class="link-card">
-	<a href={href}>
+	<a href={hasDedicatedPage ? href : github} target={!hasDedicatedPage ? "__blank" : ""}>
+		{aiRelated ? <p class="cardBadge"><b>AI<br>related</b></p> : <p id="aiRelatedBadge"></p>}
 		<h2 style={title_transition}>
 			{title}
 		</h2>
@@ -25,15 +38,13 @@ var title_transition = "view-transition-name:"+transition_title
 		<img src={image_path} alt="" style={transition}>
 	</a>
 </li>
-<style>
+<style define:vars={{ hoverColorBeginning,hoverColorFinal }}>
 	.link-card img {
 		width:100%;
 		border-radius: 0.6rem;
 		aspect-ratio: 16/9;
-        filter: grayscale(100%);
 	}
 	.link-card {
-		text-align: center;
 		list-style: none;
 		display: flex;
 		padding: 0.25rem;
@@ -65,28 +76,67 @@ var title_transition = "view-transition-name:"+transition_title
 		margin-top: 0.5rem;
 		margin-bottom: 0;
 		color: #868686;
+		text-align: center;
 	}
-	.link-card:is(:hover, :focus-within) {
-		background-position: 0;
-		background-image: var(--accent-gradient);
+	h2{
+		text-align: center;
 	}
-	.link-card:is(:hover, :focus-within) h2 {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
+	.cardBadge{
+		color: #1a1a1a;
+		background-color: rgb(var(--accent));
+		display:inline-block;
+		border-radius: 0.6rem;
+		margin-left: 1vw;
 	}
-	.link-card:is(:hover, :focus-within) p {
-		color:white;
-	}
-    .link-card:is(:hover, :focus-within) img {
-		filter: grayscale(0%);
-	}
+	
 	@media only screen and (max-width: 600px){
 		/* Big smartphones */
 		li{
 			width:100%;
+		}
+	}
+	@media only screen and (max-width: 1200px){
+		li{
+			width:100%;
+		}
+		.link-card {
+			background-position: 0;
+			background-image: linear-gradient(45deg, rgb(var(--hoverColorBeginning)), var(--hoverColorFinal) 30%, white 60%);
+		}
+		.link-card h2 {
+			background-image: var(--accent-gradient);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-size: 400%;
+			background-position: 0%;
+		}
+	}
+	@media only screen and (min-width: 1200px){
+		.link-card img {
+			filter: grayscale(100%);
+		}
+		.cardBadge{
+			background-color: white;
+		}
+		.link-card:hover {
+			background-position: 0;
+			background-image: linear-gradient(45deg, rgb(var(--hoverColorBeginning)), var(--hoverColorFinal) 30%, white 60%);
+		}
+		.link-card:hover h2 {
+			background-image: var(--accent-gradient);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-size: 400%;
+			background-position: 0%;
+		}
+		.link-card:hover p {
+			color:white;
+		}
+		.link-card:hover img {
+			filter: grayscale(0%);
+		}
+		.link-card:hover .cardBadge {
+			background-color: rgb(var(--accent));
 		}
 	}
 </style>

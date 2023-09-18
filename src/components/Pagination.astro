@@ -8,7 +8,7 @@ const { total,currentPage} = Astro.props;
 let pageNumbers = Array.from({ length: total-1 }, (x, i) => i);
 ---
 <div id="paginationDiv">
-  {(currentPage==1) ? <p class="currentPage">1</p> : <a href="/projects/">1</a>}
+  {(currentPage==1) ? <p id="firstPage" class="currentPage">1</p> : <a id="firstPage" href="/projects/">1</a>}
   {pageNumbers.map(pageNumber =>
     (currentPage==(pageNumber+2)) ? <p class="currentPage">{pageNumber+2}</p> : <a href={"/projects/"+(pageNumber+2)}>{pageNumber+2}</a>)}
 </div><br>
@@ -48,6 +48,10 @@ let pageNumbers = Array.from({ length: total-1 }, (x, i) => i);
       padding: 1%;
       margin: 1%;
     }
+    #firstPage{
+      padding-left: 2.5%;
+      padding-right: 2.5%;
+    }
     @media only screen and (max-width: 1200px){
       /* Big smartphones */
       a {
@@ -57,6 +61,10 @@ let pageNumbers = Array.from({ length: total-1 }, (x, i) => i);
       .currentPage{
         padding: 2%;
         margin: 2%;
+      }
+      #firstPage{
+        padding-left: 5%;
+        padding-right: 5%;
       }
     }
     @media only screen and (max-width: 600px){
@@ -68,6 +76,10 @@ let pageNumbers = Array.from({ length: total-1 }, (x, i) => i);
       .currentPage{
         padding: 3%;
         margin: 3%;
+      }
+      #firstPage{
+        padding-left: 8%;
+        padding-right: 8%;
       }
     }
 </style>

@@ -5,8 +5,10 @@ image: /imgs/demoBird.gif
 transition_image: bird_img
 transition_title: bird_ttl
 description: A simple computer web game consisting of a battle between a bird and a witch
-github: https://github.com/alvarolarraya/CoinClassification
+github: https://github.com/alvarolarraya/bird_game
 cardNumber: 4
+aiRelated: false
+hasDedicatedPage: true
 ---
 <h2 class="projectTitles">What's all this about? 🧙🏻‍♀️🆚🐦‍⬛</h2>
 
@@ -93,4 +95,72 @@ cardNumber: 4
     padding-left:10vw;
     padding-top:1vh;
   }
+  @media only screen and (max-width: 1200px){
+		th{
+      font-size:2.5rem;
+    }
+    td{
+      font-size:2rem;
+    }
+    .projectTitles{
+      font-size:5rem;
+      line-height:6rem;
+    }
+    li{
+      padding-left:15vw;
+    }
+    ul{
+      text-align: -webkit-center;
+      font-size: 2.5rem;  
+      line-height: 4rem; 
+      font-family: "Caveat";
+      margin-top:2vh;
+      list-style-type: none;
+    }
+    .subList{
+      padding-left:25vw;
+    }
+    p{
+      font-size: 2.5rem;
+      line-height: 4rem; 
+    }
+    b{
+      font-size: 3rem;
+      background-color: #2E2E2E;
+    }
+	}
+  @media only screen and (max-width: 600px){
+		th{
+      font-size:1rem;
+    }
+    td{
+      font-size:1rem;
+    }
+    .projectTitles{
+      font-size:2rem;
+      line-height:3rem;
+    }
+    li{
+      padding-left:10vw;
+    }
+    ul{
+      text-align: -webkit-center;
+      font-size: 1rem;  
+      line-height: 2rem; 
+      font-family: "Caveat";
+      margin-top:2vh;
+      list-style-type: none;
+    }
+    .subList{
+      padding-left:20vw;
+    }
+    p{
+      font-size: 1rem;
+      line-height: 2rem; 
+    }
+    b{
+      font-size: 1.5rem;
+      background-color: #2E2E2E;
+    }
+	}
 </style>
