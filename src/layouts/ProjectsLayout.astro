@@ -35,17 +35,19 @@ if(currentPage.get() == 1){
 		  linkedin="https://linkedin.com/in/álvaro-larraya-830700240";
 		  email="https://mail.google.com/mail/?view=cm&fs=1&to=alvaro.larraya1@gmail.com";
 	  />
-    <ScrollArrow
-      down="#content"
-      up="#"
-      client:only="react"
-    />
+    
     <div id="title">
       <BackArrow
         link={linkBack};
       />
       <h1 id="topHeader" style={title_transition}>{title}</h1>
     </div>
+    
+    <ScrollArrow
+      client:only="react"
+      down="#content"
+      up="#"
+    />
     
   </header>
   <div id="divPhoto">
