@@ -4,7 +4,6 @@ import Card from '../../components/Card.astro';
 import Navbar from '../../components/Navbar.astro';
 import ScrollArrow from '../../components/ScrollArrow.jsx';
 import Pagination from '../../components/Pagination.astro';
-import { currentPage } from '../../currentPage.js';
 export async function getStaticPaths({ paginate }:any){
 	const projects = await Astro.glob('./*.md');
 	return paginate(projects, {
@@ -12,7 +11,6 @@ export async function getStaticPaths({ paginate }:any){
 	})
 }
 const {page} = Astro.props;
-currentPage.set(page.currentPage);
 ---
 
 <Layout title="Alvaro Larraya's projects">
@@ -112,7 +110,7 @@ currentPage.set(page.currentPage);
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.9/sweetalert2.min.css" integrity="sha512-cyIcYOviYhF0bHIhzXWJQ/7xnaBuIIOecYoPZBgJHQKFPo+TOBA+BY1EnTpmM8yKDU4ZdI3UGccNGCEUdfbBqw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.9/sweetalert2.all.min.js" integrity="sha512-IZ95TbsPTDl3eT5GwqTJH/14xZ2feLEGJRbII6bRKtE/HC6x3N4cHye7yyikadgAsuiddCY2+6gMntpVHL1gHw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script>
+<script define:vars={{ page }}>
 	if ('false' != sessionStorage.getItem('projectsFirstVisit')) {
 		Swal.fire({
 			title: '<strong><u>Info</u></strong>',
@@ -125,5 +123,6 @@ currentPage.set(page.currentPage);
 		})
 		sessionStorage.setItem('projectsFirstVisit', 'false');
 	}
+	sessionStorage.setItem('currentPage', page.currentPage);
 </script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

@@ -1,20 +1,12 @@
 ---
 import Navbar from '../components/Navbar.astro';
 import ScrollArrow from '../components/ScrollArrow.jsx';
-import ReturnArrow from '../components/ReturnArrow.astro';
-import { currentPage } from '../currentPage';
+import ReturnArrow from '../components/ReturnArrow.jsx';
 const { frontmatter } = Astro.props;
 const { title, description, image, transition_image, transition_title, github,cardNumber} = frontmatter;
 
 var transition = "view-transition-name:"+transition_image
 var title_transition = "view-transition-name:"+transition_title
-
-var linkBack;
-if(currentPage.get() == 1){
-  linkBack = "/projects/#"+cardNumber;
-}else{
-  linkBack = "/projects/"+currentPage.get()+"#"+cardNumber;
-}
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -39,7 +31,8 @@ if(currentPage.get() == 1){
     
     <div id="title">
       <ReturnArrow
-        link={linkBack}
+        client:only
+        cardNumber={cardNumber}
       />
       <h1 id="topHeader" style={title_transition}>{title}</h1>
     </div>
