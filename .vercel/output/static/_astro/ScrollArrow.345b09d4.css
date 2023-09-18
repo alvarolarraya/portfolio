@@ -1,0 +1,1 @@
+#downArrow,#upArrow{position:fixed;right:10px;bottom:10px;width:10%;height:10%;z-index:1}html:not([data-scroll="0"]) #downArrow{display:none}html:is([data-scroll="0"]) #upArrow{display:none}
