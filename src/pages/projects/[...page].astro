@@ -12,7 +12,8 @@ export async function getStaticPaths({ paginate }:any){
 	})
 }
 const {page} = Astro.props;
-console.log(page)
+console.log("llega");
+console.log(page);
 currentPage.set(page.currentPage);
 ---
 
