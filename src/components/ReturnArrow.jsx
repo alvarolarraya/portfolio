@@ -3,7 +3,7 @@ import React from 'react';
 
 export default function ScrollArrow({cardNumber}) {
     var link;
-    if(window.sessionStorage.getItem('currentPage') == 1){
+    if((window.sessionStorage.getItem('currentPage') == 1)||(window.sessionStorage.getItem('currentPage') == null)){
         link = "/projects/#"+cardNumber;
     }
     else{
