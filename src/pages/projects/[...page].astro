@@ -110,7 +110,7 @@ const {page} = Astro.props;
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.9/sweetalert2.min.css" integrity="sha512-cyIcYOviYhF0bHIhzXWJQ/7xnaBuIIOecYoPZBgJHQKFPo+TOBA+BY1EnTpmM8yKDU4ZdI3UGccNGCEUdfbBqw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.9/sweetalert2.all.min.js" integrity="sha512-IZ95TbsPTDl3eT5GwqTJH/14xZ2feLEGJRbII6bRKtE/HC6x3N4cHye7yyikadgAsuiddCY2+6gMntpVHL1gHw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script define:vars={{ page }}>
+<script>
 	if ('false' != sessionStorage.getItem('projectsFirstVisit')) {
 		Swal.fire({
 			title: '<strong><u>Info</u></strong>',
@@ -123,19 +123,26 @@ const {page} = Astro.props;
 		})
 		sessionStorage.setItem('projectsFirstVisit', 'false');
 	}
-	window.navigation.addEventListener('navigate', (event)=>{
+	var redirections = 0;
+	const handler = (event:any)=>{
 		const toUrl = new URL(event.destination.url);
 		event.intercept({
 			async handler (){
 				if(toUrl.href.indexOf("projects")==-1){
-					window.location.href = toUrl.href;
+					if(redirections == 0){						
+						redirections++;
+						window.navigation.removeEventListener('navigate',handler);
+						window.location.href = toUrl.href;				
+					}
 				}else if(toUrl.href.split("/").pop() == ""){
 					sessionStorage.setItem('currentPage', "1");
 				}else if(!toUrl.href.split("/").pop().match(/[^\d]/)){
 					sessionStorage.setItem('currentPage', toUrl.href.split("/").pop());
 				}
+				
 			}
 		})
-	})
+	};
+	window.navigation.addEventListener('navigate', handler)
 </script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

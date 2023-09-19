@@ -10,7 +10,7 @@ cardNumber: 2
 aiRelated: true
 hasDedicatedPage: true
 ---
-<h2 class="projectTitles">Index</h2>
+<h2 class="h2MdTitles">Index</h2>
 <ul>
   <li> ⦿ <a href="#generalExplanation">What's all this about? 😶</a></li>
   <li> ⦿ <a href="#dataset">Dataset</a></li>
@@ -24,15 +24,15 @@ hasDedicatedPage: true
   <li> ⦿ <a href="#implementation">Implementation  👨🏻‍💻</a></li>
 </ul>
 
-<h2 id="generalExplanation">What's all this about? 😶</h2>
+<h2 class="h2MdTitles" id="generalExplanation">What's all this about? 😶</h2>
 
 <div><p>A groupal university project I made with a collegue. The main goal is the development, training, and validation of a system for detecting and <b>classifying coins</b>. We took part in this <a href="https://www.kaggle.com/competitions/vision-artificial-upna2021-clasificacion-monedas" target="_blank">kaggle competition</a>. There are <b>8 different classes</b>: 1 cént, 2 cents, 5 cents, 10 cens, 20 cens, 50 cens, 1 euro and 2 euros</p></div>
 
-<h2 id="dataset">Dataset</h2>
+<h2 class="h2MdTitles" id="dataset">Dataset</h2>
 
 <div><p>We had <b>1291</b> coin's pictures <b>to train</b> and <b>964 to test</b> our model. All the photos are <b>150x150</b> with <b>salt and pepper noise</b>.</p></div>
 
-<h2 id="approaches">Preprocessing approaches</h2>
+<h2 id="approaches" class="h2MdTitles">Preprocessing approaches</h2>
 
 <ul>
   <li> ⦿ HOG</li>
@@ -89,7 +89,7 @@ hasDedicatedPage: true
   </div>
 </div>
 
-<h2 id="svm">Model structure</h2>
+<h2 class="h2MdTitles" id="svm">Model structure</h2>
 
 <div>
   <p>Support Vector Machine better known as SVM is a supervised learning algorithm, the goal is to find a hyperplane that best separates two different classes of data points. We tried a variety of algorithms and SVMs was the one that worked best for us.</p>
@@ -99,7 +99,7 @@ hasDedicatedPage: true
 </div>
 
 
-<h2 id="implementation">Implementation  👨🏻‍💻</h2>
+<h2 class="h2MdTitles" id="implementation">Implementation  👨🏻‍💻</h2>
 
 <div>
   <p>This models are made with <b>Scikit Learn</b> and <b>OpenCV</b>. To see the code firsthand click on the image at the top of the page.</p>
@@ -114,7 +114,7 @@ hasDedicatedPage: true
 
 <link href='https://fonts.googleapis.com/css?family=Caveat' rel='stylesheet'>
 <style>
-  h2{
+  .h2MdTitles{
     text-align: center;
     font-size: 6rem;
     display: block;

@@ -10,7 +10,7 @@ cardNumber: 1
 aiRelated: true
 hasDedicatedPage: true
 ---
-<h2 class="projectTitles">Index</h2>
+<h2 class="h2MdTitles" class="projectTitles">Index</h2>
 <ul>
   <li> ⦿ <a href="#generalExplanation">What's all this about? 😶</a></li>
   <li> ⦿ <a href="#techniques">Techniques analyzed</a></li>
@@ -26,11 +26,11 @@ hasDedicatedPage: true
   <li> ⦿ <a href="#implementation">Implementation  👨🏻‍💻</a></li>
 </ul>
 
-<h2 id="generalExplanation">What's all this about? 😶</h2>
+<h2 class="h2MdTitles" id="generalExplanation">What's all this about? 😶</h2>
 
 <div><p><b>FER 2013</b> (Face Emotion Recognition) is a dataset that offers the possibility to study a vast number of facial expressions and predict the emotion they are feeling. This project's goal is to analyze the influence of certain machine learning and computer vision techniques.</p><br><p>Starting by creating a very simple <b>CNN</b> which classifies each picture and then applying little changes that almost doesn't mutate the model's structure, yet provide a considerable improvement in the classificator understanding of the problem.</p></div>
 
-<h2 id="techniques">Techniques analyzed</h2>
+<h2 class="h2MdTitles" id="techniques">Techniques analyzed</h2>
 
 <ul>
   <li> ⦿ Transfer learning</li>
@@ -40,7 +40,7 @@ hasDedicatedPage: true
   <li> ⦿ Test time augmentation</li>
 </ul>
 
-<h2 id="dataset">Dataset</h2>
+<h2 class="h2MdTitles" id="dataset">Dataset</h2>
 
 <div>
   <p>All the images are 48x48, in grayscale, the faces are centered similarly and there are seven classes: angry, disgust, fear, happy, sad, surprise and neutral. 28708 examples are to train and 7178 to test.</p>
@@ -52,7 +52,7 @@ hasDedicatedPage: true
   <img src="/imgs/data_barplot.webp">
 </div>
 
-<h2 id="baseModel">Choosing the base model</h2>
+<h2 class="h2MdTitles" id="baseModel">Choosing the base model</h2>
 
 <div>
   <p>The perfect model must be fast to do as many experiments as possible and at the same time to have an acceptable precision in its classification. So I tried different configurations</p>
@@ -128,7 +128,7 @@ hasDedicatedPage: true
   <p>All models are trained for 30 epochs, except for the fine-tuned model because it takes too long. Therefore, we will work with the custom model since it is faster than the fine tuned and more accurate than the transfer learning one.</p>
 </div>
 
-<h2 id="dataAugmentation">Data augmentation</h2>
+<h2 class="h2MdTitles" id="dataAugmentation">Data augmentation</h2>
 
 <div> 
   <p>The more examples our model sees, the better. But what can we do if we've already used the entire dataset? Data augmentation addresses this issue. It's a technique, as the name suggests, for adding new examples.</p>
@@ -186,7 +186,7 @@ hasDedicatedPage: true
   </table>
 </div>
 
-<h2 id="labelSmoothing">Label smoothing</h2>
+<h2 class="h2MdTitles" id="labelSmoothing">Label smoothing</h2>
 
 <div> 
   <p>One of the major problems with this dataset is the ambiguity of the classes to which the images belong, as we rarely have emotions that belong solely and exclusively to one of the classes we have. That's why it's logical to consider using label smoothing. To recap: label smoothing allows us to prevent the model from being overly confident in its predictions, which is precisely what we want.</p>
@@ -250,7 +250,7 @@ hasDedicatedPage: true
   </table>
 </div>
 
-<h2 id="tta">Test time augmentation</h2>
+<h2 class="h2MdTitles" id="tta">Test time augmentation</h2>
 
 <div> 
   <p>Building on the previous concept that allows us to train a better model, we can make mistakes on somewhat ambiguous images. Humans tend to make mistakes as well, and one way to avoid this is by forming committees of people to provide their perspective. What's better than a good model? Multiple good models.</p>
@@ -326,7 +326,7 @@ hasDedicatedPage: true
   </table>
 </div>
 
-<h2 id="implementation">Implementation  👨🏻‍💻</h2>
+<h2 class="h2MdTitles" id="implementation">Implementation  👨🏻‍💻</h2>
 
 <div>
   <p>This models are made with <b>TensorFlow Keras</b>. To see the code firsthand click on the image at the top of the page.</p>
@@ -338,7 +338,7 @@ hasDedicatedPage: true
 
 <link href='https://fonts.googleapis.com/css?family=Caveat' rel='stylesheet'>
 <style>
-  h2{
+  .h2MdTitles{
     text-align: center;
     font-size: 6rem;
     display: block;

@@ -10,7 +10,7 @@ cardNumber: 7
 aiRelated: true
 hasDedicatedPage: true
 ---
-<h2 class="projectTitles">Index</h2>
+<h2 class="h2MdTitles">Index</h2>
 <ul>
   <li> ⦿ <a href="#generalExplanation">What's all this about? 😶</a></li>
   <li> ⦿ <a href="#dataset">Dataset</a></li>
@@ -20,21 +20,21 @@ hasDedicatedPage: true
   <li> ⦿ <a href="#implementation">Implementation  👨🏻‍💻</a></li>
 </ul>
 
-<h2 id="generalExplanation">What's all this about? 😶</h2>
+<h2 class="h2MdTitles" id="generalExplanation">What's all this about? 😶</h2>
 
 <div><p>A groupal university project I made with two collegues. The goal is to build a dictionary which translates words from Spanish to English.</p></div>
 
-<h2 id="dataset">Dataset</h2>
+<h2 class="h2MdTitles" id="dataset">Dataset</h2>
 
 <div><p>We collected 7 Harry Potter books both in English and Spanish, although we ended up studying only one of them due to the computational cost training with the 7 books would need.</p></div>
 
-<h2 id="tokenization">Tokenization</h2>
+<h2 class="h2MdTitles" id="tokenization">Tokenization</h2>
 
 <div>
   <p>We removed all the numbers, we changed the punctuation marks that denote the end of a sentence for a period, if there were several in a row we only put a period, and finally we removed everything that wasn't a letter or a period. Then we saved all the words as our tokens to have an English and Spanish vocabulary.</p>
 </div>
 
-<h2 id="cbow">CBOW</h2>
+<h2 class="h2MdTitles" id="cbow">CBOW</h2>
 
 <div>
   <p>CBOW consists of predicting a word based on its context. To implement the CBOW method what we used a sliding window that goes through the sentences of our corpus. Keeping in mind that we work with sentences is important since it is the unit we operate with, each point delimits the end of a sentence and the beginning of the next one.</p>
@@ -46,13 +46,13 @@ hasDedicatedPage: true
   <p>We obtained word embeddings as the weights trained from the neural network.</p>
 </div>
 
-<h2 id="matrix">Translation matrix</h2>
+<h2 class="h2MdTitles" id="matrix">Translation matrix</h2>
 
 <div>
   <p>Having calculated all the embedings we made a translation matrix such that multiplying an english embedding by this matrix results in a spanish embedding. Maybe the resulting spanish embedding doesn't exist so we calculated the nearer embedding with KNN. Saving each word an its embedding we have an English to Spanish translator</p>
 </div>
 
-<h2 id="implementation">Implementation  👨🏻‍💻</h2>
+<h2 class="h2MdTitles" id="implementation">Implementation  👨🏻‍💻</h2>
 
 <div>
   <p>This models are made with  Python libraries such as <b>Pandas</b>, <b>Scikit Learn</b>, <b>Keras</b> or <b>NLTK</b> among others. To see the code firsthand click on the image at the top of the page.</p>
@@ -65,7 +65,7 @@ hasDedicatedPage: true
 
 <link href='https://fonts.googleapis.com/css?family=Caveat' rel='stylesheet'>
 <style>
-  h2{
+  .h2MdTitles{
     text-align: center;
     font-size: 6rem;
     display: block;
